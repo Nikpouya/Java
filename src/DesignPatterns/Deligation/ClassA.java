@@ -1,4 +1,4 @@
-package DesignPatterns.Delegation;
+package DesignPatterns.Deligation;
 
 public class ClassA {
     public void print()
