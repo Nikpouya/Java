@@ -1,0 +1,15 @@
+
+Throwable
+
+    1- Error (StackOverflowError , VirtualMachineError , OutOfMemoryError)
+
+    2- Exception
+
+      Checked        2.a- IOException
+      Checked        2.b- SQLException
+      Checked        2.c- ClassNotFoundException
+      Unchecked      2.d- RuntimeException
+      Unchecked          2.d.1- ArithmeticException
+      Unchecked          2.d.2- NullPointerException
+      Unchecked          2.d.3- NumberFormatException
+      Unchecked          2.d.4- IndexOutOfBoundsException (ArrayIndexOutOfBoundsException , StringIndexOutOfBoundsException )

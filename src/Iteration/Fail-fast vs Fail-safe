@@ -1,0 +1,4 @@
+
+Fail-fast Iterators throws ConcurrentModificationException when one Thread is iterating over collection object and other thread structurally modify Collection either by adding, removing or modifying objects on underlying collection. They are called fail-fast because they try to immediately throw Exception when they encounter failure
+
+On the other hand fail-safe Iterators works on copy of collection instead of original collection.
