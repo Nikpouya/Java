@@ -1,0 +1,19 @@
+Two and a half years late is better than never, right?
+
+int System.in.read() reads the next byte of data from the input stream. But I am sure you already knew that, because it is trivial to look up. So, what you are probably asking is:
+
+Why is it declared to return an int when the documentation says that it reads a byte?
+
+and why does it appear to return garbage? (I type '9', but it returns 57.)
+
+It returns an int because besides all the possible values of a byte, it also needs to be able to return an extra value to indicate end-of-stream. So, it has to return a type which can express more values than a byte can.
+
+Note: They could have made it a short, but they opted for int instead, possibly as a tip of the hat of historical significance to C, whose getc() function also returns an int, but more importantly because short is a bit cumbersome to work with, (the language offers no means of specifying a short literal, so you have to specify an int literal and cast it to short,) plus on certain architectures int has better performance than short.
+
+It appears to return garbage because when you view a character as an integer, what you are looking at is the ASCII(*) value of that character. So, a '9' appears as a 57. But if you cast it to a character, you get '9', so all is well.
+
+Think of it this way: if you typed the character '9' it is nonsensical to expect System.in.read() to return the number 9, because then what number would you expect it to return if you had typed an 'a'? Obviously, characters must be mapped to numbers. ASCII(*) is a system of mapping characters to numbers. And in this system, character '9' maps to number 57, not number 9.
+
+(*) Not necessarily ASCII; it may be some other encoding, like UTF-16; but in the vast majority of encodings, and certainly in all popular encodings, the first 127 values are the same as ASCII. And this includes all english alphanumeric characters and popular symbols.
+
+https://stackoverflow.com/questions/15446689/what-is-the-use-of-system-in-read
